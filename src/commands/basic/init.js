@@ -1,6 +1,6 @@
 'use strict';
 
-import chalk from 'chalk';
+import kleur from 'chalk';
 import execa from 'execa';
 import fs from 'fs';
 import path from 'path';
@@ -47,18 +47,18 @@ const makeInitialCommit = () => {
 const showInstructions = () => {
   console.log();
   console.log();
-  console.log(chalk.cyan.bold(` You're all set`));
+  console.log(kleur.cyan.bold(` You're all set`));
   console.log(
-    chalk.cyan.bold(
-      ` Now, just type in ${chalk.green.bold(
+    kleur.cyan.bold(
+      ` Now, just type in ${kleur.green.bold(
         `cd ${projectName}`,
-      )} && ${chalk.green.bold('mevn serve')}`,
+      )} && ${kleur.green.bold('mevn serve')}`,
     ),
   );
 
   console.log();
   console.log(
-    `${chalk.yellow.bold(' Warning: ')} Do not delete the mevn.json file`,
+    `${kleur.yellow.bold(' Warning: ')} Do not delete the mevn.json file`,
   );
 
   let removeCmd = isWin ? 'rmdir /s /q' : 'rm -rf';
@@ -243,7 +243,7 @@ const initializeProject = async appName => {
   if (fs.existsSync('./mevn.json')) {
     console.log();
     console.log(
-      chalk.cyan.bold(
+      kleur.cyan.bold(
         ` It seems that you're already within a valid MEVN stack based project`,
       ),
     );

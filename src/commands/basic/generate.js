@@ -1,6 +1,6 @@
 'use strict';
 
-import chalk from 'chalk';
+import kleur from 'chalk';
 import execa from 'execa';
 import fs from 'fs';
 import inquirer from 'inquirer';
@@ -120,7 +120,7 @@ const generateFile = async () => {
 
     createFile(generatedFile, generatedFileContent, { flag: 'wx' }, err => {
       if (err) throw err;
-      console.log(chalk.yellow('File Created...!'));
+      console.log(kleur.yellow('File Created...!'));
     });
   }
 };

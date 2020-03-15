@@ -1,6 +1,6 @@
 'use strict';
 
-import chalk from 'chalk';
+import kleur from 'chalk';
 import execa from 'execa';
 import fs from 'fs';
 import inquirer from 'inquirer';
@@ -66,7 +66,7 @@ const addPlugins = async () => {
   if (!installablePlugins.length) {
     console.log();
     console.log(
-      chalk.red.bold(` ${availablePlugins.join(', ')} are already installed`),
+      kleur.red.bold(` ${availablePlugins.join(', ')} are already installed`),
     );
     return;
   }

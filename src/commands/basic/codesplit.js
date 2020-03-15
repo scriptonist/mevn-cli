@@ -1,6 +1,6 @@
 'use strict';
 
-import chalk from 'chalk';
+import kleur from 'chalk';
 import fs from 'fs';
 import inquirer from 'inquirer';
 import showBanner from 'node-banner';
@@ -45,7 +45,7 @@ const asyncRender = async () => {
   if (!availableComponents.length) {
     console.log();
     console.log(
-      chalk.cyan.bold(
+      kleur.cyan.bold(
         ' Info: All of the available components are dynamically imported',
       ),
     );
@@ -88,7 +88,7 @@ const asyncRender = async () => {
   fs.writeFileSync('./router.js', routesConfig.join('\n'));
   console.log();
   console.log(
-    chalk.green.bold(
+    kleur.green.bold(
       ` From now on ${componentName} will be rendered asynchronously`,
     ),
   );

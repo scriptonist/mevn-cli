@@ -5,7 +5,7 @@
 // Require Modules.
 import '@babel/polyfill';
 import program from 'commander';
-import chalk from 'chalk';
+import kleur from 'chalk';
 import didYouMean from 'didyoumean';
 import envinfo from 'envinfo';
 import updateNotifier from 'update-notifier';
@@ -30,7 +30,7 @@ const suggestCommands = cmd => {
 
   const suggestion = didYouMean(cmd, availableCommands);
   if (suggestion) {
-    console.log(`  ` + chalk.red(`Did you mean ${chalk.yellow(suggestion)}?`));
+    console.log(`  ` + kleur.red(`Did you mean ${kleur.yellow(suggestion)}?`));
   }
 };
 
@@ -76,7 +76,7 @@ program
   .command('info')
   .description('Prints debugging information about the local environment')
   .action(() => {
-    console.log(chalk.bold('\nEnvironment Info:'));
+    console.log(kleur.bold('\nEnvironment Info:'));
     envinfo
       .run({
         System: ['OS', 'CPU'],
@@ -89,7 +89,7 @@ program
 
 program.arguments('<command>').action(cmd => {
   program.outputHelp();
-  console.log(`  ` + chalk.red(`\n  Unknown command ${chalk.yellow(cmd)}.`));
+  console.log(`  ` + kleur.red(`\n  Unknown command ${kleur.yellow(cmd)}.`));
   console.log();
   suggestCommands(cmd);
 });

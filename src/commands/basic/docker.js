@@ -1,6 +1,6 @@
 'use strict';
 
-import chalk from 'chalk';
+import kleur from 'chalk';
 import execa from 'execa';
 import showBanner from 'node-banner';
 
@@ -24,7 +24,9 @@ const dockerize = async () => {
     // Sets up the environment by pulling required images as in the config file
     const { stdout } = await execa.shell(
       `${isWin ? '' : 'sudo'} docker-compose up`,
-      { stdio: 'inherit' },
+      {
+        stdio: 'inherit',
+      },
     );
 
     // Log the results to stdout
@@ -35,7 +37,7 @@ const dockerize = async () => {
 
   console.log();
   console.log(
-    chalk.green.bold(
+    kleur.green.bold(
       ' Services:\n server:- http://localhost:9000\n client:- http://localhost:8080',
     ),
   );

@@ -1,6 +1,6 @@
 'use strict';
 
-import chalk from 'chalk';
+import kleur from 'chalk';
 import fs from 'fs';
 import path from 'path';
 
@@ -15,8 +15,8 @@ import appData from './projectConfig';
 export const checkIfConfigFileExists = () => {
   if (!fs.existsSync('./mevn.json')) {
     console.log(
-      chalk.cyan.bold(`\n\n Make sure that you're within a valid MEVN project
-      \n${chalk.red.bold(' Error:')} No mevn.json file found
+      kleur.cyan.bold(`\n\n Make sure that you're within a valid MEVN project
+      \n${kleur.red.bold(' Error:')} No mevn.json file found
     `),
     );
     process.exit(1);
@@ -31,12 +31,12 @@ export const checkIfConfigFileExists = () => {
  */
 
 export const templateIsGraphQL = () => {
-  let msg = `GraphQL boilerplate doesn't include ${chalk.yellow.bold(
+  let msg = `GraphQL boilerplate doesn't include ${kleur.yellow.bold(
     `model, route and controller`,
   )} directories!`;
   console.log(
-    chalk.red.bold(
-      `\n Warning:- ${chalk.cyan.bold(`${msg}
+    kleur.red.bold(
+      `\n Warning:- ${kleur.cyan.bold(`${msg}
     `)}`,
     ),
   );
@@ -55,7 +55,7 @@ export const checkIfTemplateIsNuxt = async () => {
   if (template === 'Nuxt-js') {
     console.log();
     console.log(
-      chalk.red.bold(` You're having the Nuxt-js boilerplate template`),
+      kleur.red.bold(` You're having the Nuxt-js boilerplate template`),
     );
     process.exit(1);
   }
@@ -71,7 +71,7 @@ export const checkIfTemplateIsNuxt = async () => {
 export const checkIfServerExists = async () => {
   if (!fs.existsSync(path.resolve(process.cwd(), 'server'))) {
     console.log();
-    console.log(chalk.red.bold(` You aren't having a FullStack-app template`));
+    console.log(kleur.red.bold(` You aren't having a FullStack-app template`));
     process.exit(1);
   }
 };
@@ -85,7 +85,7 @@ export const checkIfServerExists = async () => {
 
 export const dependencyNotInstalled = dependency => {
   console.log(
-    chalk.red.bold(` Warning:- ${chalk.cyan.bold(
+    kleur.red.bold(` Warning:- ${kleur.cyan.bold(
       `${dependency} is required to be installed`,
     )}
     `),
@@ -105,7 +105,7 @@ export const dependencyNotInstalled = dependency => {
 export const showInstallationInfo = (depCandidate, spinner, url) => {
   const msg = ` You need to download ${depCandidate} from the official downloads page: ${url}`;
   if (typeof spinner === 'undefined') {
-    console.log(chalk.cyan.bold(msg));
+    console.log(kleur.cyan.bold(msg));
   } else {
     spinner.info(msg);
   }
@@ -121,9 +121,9 @@ export const showInstallationInfo = (depCandidate, spinner, url) => {
 
 export const invalidProjectName = projectName => {
   console.log(
-    chalk.red.bold(
-      ` Error: Could not create a project called ${chalk.red(
-        `"${chalk.cyan.bold(projectName)}"`,
+    kleur.red.bold(
+      ` Error: Could not create a project called ${kleur.red(
+        `"${kleur.cyan.bold(projectName)}"`,
       )} because of npm naming restrictions:`,
     ),
   );
@@ -139,8 +139,8 @@ export const invalidProjectName = projectName => {
 
 export const directoryExistsInPath = projectName => {
   console.log(
-    chalk.red.bold(
-      `\n Error: Directory ${chalk.cyan.bold(
+    kleur.red.bold(
+      `\n Error: Directory ${kleur.cyan.bold(
         projectName,
       )} already exists in path!`,
     ),
@@ -156,7 +156,7 @@ export const directoryExistsInPath = projectName => {
 
 export const hasStrayArgs = () => {
   console.log(
-    chalk.red.bold(
+    kleur.red.bold(
       '\n Error: Kindly provide only one argument as the directory name!!',
     ),
   );

@@ -1,6 +1,6 @@
 'use strict';
 
-import chalk from 'chalk';
+import kleur from 'chalk';
 import fs from 'fs';
 import inquirer from 'inquirer';
 import showBanner from 'node-banner';
@@ -73,7 +73,7 @@ const generateComponent = async () => {
 
   if (fs.existsSync(`${componentName}.vue`)) {
     console.log();
-    console.log(chalk.cyan.bold(` Info: ${componentName}.vue already exists`));
+    console.log(kleur.cyan.bold(` Info: ${componentName}.vue already exists`));
     return;
   }
 
